@@ -469,14 +469,19 @@ class MWSClient{
     }
     /**
      * Returns an order based on the AmazonOrderId values that you specify.
-     * @param string $AmazonOrderId
+     * @param array $AmazonOrderIds
      * @return array if the order is found, false if not
      */
-    public function GetOrder($AmazonOrderId)
+    public function GetOrders(array $AmazonOrderIds)
     {
-        $response = $this->request('GetOrder', [
-            'AmazonOrderId.Id.1' => $AmazonOrderId
-        ]);
+        $orderReq = array();
+
+        foreach($AmazonOrderIds as $key => $order)
+        {
+            $orderReq['AmazonOrderId.Id.'.++$key] = $order;
+        }
+
+        $response = $this->request('GetOrder', $orderReq);
 
         if (isset($response['GetOrderResult']['Orders']['Order'])) {
             return $response['GetOrderResult']['Orders']['Order'];
