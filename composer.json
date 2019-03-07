@@ -1,13 +1,13 @@
 {
-    "name": "mcs/amazon-mws",
+    "name": "shreyanshpanchal/amazon-mws",
     "description": "Library to interface with Amazon MWS",
     "license": "MIT",
     "keywords": ["amazon", "mws"],
     "minimum-stability": "dev",
     "authors": [
         {
-            "name": "Michiel Meertens",
-            "email": "meertensmichiel28@gmail.com"
+            "name": "Shreyansh Panchal",
+            "email": "sunpan835@gmail.com"
         }
     ],
     "require": {
